@@ -133,9 +133,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nG8-Fg-MYt">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="nG8-Fg-MYt">
                                 <rect key="frame" x="20" y="79" width="156" height="152"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="6Mq-Sd-yq3" appends="YES" id="cQs-8B-6Bj"/>
+                                </connections>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write a caption..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="90g-OB-RCP">
                                 <rect key="frame" x="184" y="79" width="210" height="152"/>
@@ -150,11 +154,27 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="N3J-gp-AH7">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="CRW-nA-RGu"/>
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="OP8-wV-3LO"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="CRW-nA-RGu">
+                            <connections>
+                                <action selector="didTapCancel:" destination="8bz-AZ-TWR" id="nsq-mC-ILv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="OP8-wV-3LO">
+                            <connections>
+                                <action selector="didTapShare:" destination="8bz-AZ-TWR" id="nnJ-Wj-aYB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="postImageView" destination="nG8-Fg-MYt" id="3Ht-LL-Smj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hz-Pa-3tO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6Mq-Sd-yq3">
+                    <connections>
+                        <action selector="didTapImage:" destination="8bz-AZ-TWR" id="0OC-8t-fo8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3681.1594202898555" y="87.723214285714278"/>
         </scene>
@@ -196,6 +216,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
