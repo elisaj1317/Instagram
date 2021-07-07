@@ -167,6 +167,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="postImageView" destination="nG8-Fg-MYt" id="3Ht-LL-Smj"/>
+                        <outlet property="textView" destination="90g-OB-RCP" id="bjZ-uS-9qs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hz-Pa-3tO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
