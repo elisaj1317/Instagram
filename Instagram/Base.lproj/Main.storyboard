@@ -101,8 +101,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="DuX-6W-L3k" id="dX8-LY-m0A"/>
+                                            <outlet property="captionLabel" destination="DuX-6W-L3k" id="c5i-V9-Bee"/>
                                             <outlet property="postImageView" destination="hd8-NA-KAT" id="zjh-WI-Mfh"/>
+                                            <segue destination="Ka8-ap-VV2" kind="show" identifier="detailsSegue" id="M4O-4p-1DG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -131,6 +132,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DME-uN-FhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1850.7246376811595" y="87.723214285714278"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="Wfq-QN-CTd">
+            <objects>
+                <viewController id="Ka8-ap-VV2" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bNm-5m-AAH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="K46-OK-zMX" customClass="PFImageView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="282"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kjZ-n8-M9z" customClass="PFImageView">
+                                <rect key="frame" x="101" y="209" width="212" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvs-Bk-D3H">
+                                <rect key="frame" x="20" y="438" width="55" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created At" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHg-UG-cBc">
+                                <rect key="frame" x="301" y="438" width="93" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qa-FH-U4c">
+                                <rect key="frame" x="20" y="493" width="374" height="187"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TEP-1S-Xep"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D91-tp-2om"/>
+                    <connections>
+                        <outlet property="backdropImageView" destination="K46-OK-zMX" id="Zou-1Y-fgo"/>
+                        <outlet property="captionLabel" destination="7qa-FH-U4c" id="Emv-WY-cis"/>
+                        <outlet property="dateLabel" destination="JHg-UG-cBc" id="Yh7-mA-FiV"/>
+                        <outlet property="nameLabel" destination="dvs-Bk-D3H" id="gfK-ag-ZWj"/>
+                        <outlet property="pictureImageView" destination="kjZ-n8-M9z" id="xJv-eW-79Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ht-Ms-SrD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850.7246376811595" y="802.90178571428567"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="WBZ-7h-BTk">

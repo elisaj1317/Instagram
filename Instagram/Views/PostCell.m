@@ -23,9 +23,9 @@
 - (void)setPost:(Post *)post {
     _post = post;
     
-    self.descriptionLabel.text = post.caption;
+    self.captionLabel.text = post.caption;
     
-    self.postImageView.file = post[@"image"];
+    self.postImageView.file = post.image;
     [self.postImageView loadInBackground];
 }
 
