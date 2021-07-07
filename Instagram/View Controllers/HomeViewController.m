@@ -13,6 +13,7 @@
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *posts;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -26,6 +27,11 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    // set refreshControl
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchTimeline) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
     
     [self fetchTimeline];
 }
@@ -53,6 +59,8 @@
             self.posts = [NSMutableArray arrayWithArray:posts];
             
             [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+            
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
