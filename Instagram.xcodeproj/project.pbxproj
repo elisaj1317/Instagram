@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2813A7A12E6B9F734EF0DDD9 /* Pods_InstagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DDB02FC5233D2D9F4FFAEF /* Pods_InstagramTests.framework */; };
 		36337757C709A2102F4B3BE7 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DB521674BCFBC4C2EBE687 /* Pods_Instagram.framework */; };
+		5E417D6A2697BE1E007EBC57 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E417D692697BE1E007EBC57 /* SettingsViewController.m */; };
 		5E5E850326950E7300081F45 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5E850226950E7300081F45 /* ComposeViewController.m */; };
 		5E5E85062695247E00081F45 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5E85052695247E00081F45 /* Post.m */; };
 		5E5E850926960F6100081F45 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5E850826960F6100081F45 /* PostCell.m */; };
@@ -49,6 +50,8 @@
 /* Begin PBXFileReference section */
 		2994E6041A859D9AD117BD11 /* Pods-Instagram-InstagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram-InstagramUITests.release.xcconfig"; path = "Target Support Files/Pods-Instagram-InstagramUITests/Pods-Instagram-InstagramUITests.release.xcconfig"; sourceTree = "<group>"; };
 		41DDB02FC5233D2D9F4FFAEF /* Pods_InstagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E417D682697BE1E007EBC57 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5E417D692697BE1E007EBC57 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5E5E850126950E7300081F45 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		5E5E850226950E7300081F45 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		5E5E85042695247E00081F45 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				5E6BF3CC269619F000F01B9D /* DetailsViewController.m */,
 				5E6BF3CE2696621300F01B9D /* ProfileViewController.h */,
 				5E6BF3CF2696621300F01B9D /* ProfileViewController.m */,
+				5E417D682697BE1E007EBC57 /* SettingsViewController.h */,
+				5E417D692697BE1E007EBC57 /* SettingsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 				5E6BF3D6269664FF00F01B9D /* PostCollectionCell.m in Sources */,
 				5EB4D47F2694E7CD002B9D64 /* SceneDelegate.m in Sources */,
 				5E5E85062695247E00081F45 /* Post.m in Sources */,
+				5E417D6A2697BE1E007EBC57 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
