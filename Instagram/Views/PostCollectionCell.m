@@ -9,4 +9,11 @@
 
 @implementation PostCollectionCell
 
+- (void)setPost:(Post *)post {
+    _post = post;
+    
+    self.pictureImageView.file = post.image;
+    [self.pictureImageView loadInBackground];
+    
+}
 @end
