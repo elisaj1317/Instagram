@@ -20,6 +20,20 @@
     _user = user;
     
     self.usernameLabel.text = user.username;
+    self.descriptionLabel.text = [self.user objectForKey:@"userDescription"];
+    
+    [self setupProfileImage];
+    
+}
+
+- (void)setupProfileImage {
+    // set profile Image
+    self.profileImage.layer.masksToBounds = false;
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2;
+    self.profileImage.clipsToBounds = true;
+    
+    self.profileImage.file = [self.user objectForKey:@"profileImage"];
+    [self.profileImage loadInBackground];
 }
 
 @end

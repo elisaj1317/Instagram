@@ -28,6 +28,11 @@
     // set user properties
     newUser.username = self.usernameField.text;
     newUser.password = self.passwordField.text;
+    
+    UIImage *placeholder = [UIImage imageNamed:@"placeholder_profile"];
+    
+    [newUser setObject:[self getPFFileFromImage:placeholder] forKey:@"profileImage"];
+    [newUser setObject:@"" forKey:@"userDescription"];
         
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
@@ -47,6 +52,22 @@
         
     }];
     
+}
+
+- (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
+ 
+    // check if image is not nil
+    if (!image) {
+        return nil;
+    }
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    
+    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
 - (IBAction)didTapLogin:(id)sender {

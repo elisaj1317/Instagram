@@ -28,6 +28,8 @@
     
     [self fetchUserPosts];
     
+    self.title = [PFUser currentUser].username;
+    
     [self setCellSize];
     
     

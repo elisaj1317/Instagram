@@ -25,11 +25,7 @@
     _post = post;
     
     [self setupLabels];
-    
-    
-    // setup image
-    self.postImageView.file = post.image;
-    [self.postImageView loadInBackground];
+    [self setupImages];
 }
 
 - (void)setupLabels {
@@ -53,6 +49,21 @@
     
     // setup date
     self.timeLabel.text = self.post.createdAt.timeAgoSinceNow;
+}
+
+- (void) setupImages {
+    // setup Post Image
+    self.postImageView.file = self.post.image;
+    [self.postImageView loadInBackground];
+    
+    // setup Profile Image
+    self.userImageView.layer.masksToBounds = false;
+    self.userImageView.layer.cornerRadius = self.userImageView.frame.size.height/2;
+    self.userImageView.clipsToBounds = true;
+    
+    self.userImageView.file = [self.post.author objectForKey:@"profileImage"];
+    [self.userImageView loadInBackground];
+    
 }
 
 @end
