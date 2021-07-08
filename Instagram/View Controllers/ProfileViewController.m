@@ -8,6 +8,7 @@
 #import "ProfileViewController.h"
 #import "PostCollectionCell.h"
 #import "ProfileHeaderView.h"
+#import "DetailsViewController.h"
 #import <Parse/Parse.h>
 
 @interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
@@ -83,15 +84,24 @@
     return headerView;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqual:@"profileDetailsSegue"]) {
+        // Passes selected Tweet into DetailsViewController
+        UICollectionViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        Post *post = self.posts[indexPath.item];
+        
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        
+        detailsViewController.post = post;
+    }
 }
-*/
+
 
 
 

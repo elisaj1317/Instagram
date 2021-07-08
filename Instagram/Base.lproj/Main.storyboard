@@ -223,6 +223,7 @@
                                         <size key="customSize" width="189" height="193"/>
                                         <connections>
                                             <outlet property="pictureImageView" destination="OXn-Ch-Wxx" id="aRh-XH-kGe"/>
+                                            <segue destination="Ka8-ap-VV2" kind="show" identifier="profileDetailsSegue" id="jHf-eC-gvc"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -375,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ht-Ms-SrD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2760.8695652173915" y="802.90178571428567"/>
+            <point key="canvasLocation" x="2761" y="860"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="WBZ-7h-BTk">
@@ -517,6 +518,9 @@
             <point key="canvasLocation" x="941" y="861"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jHf-eC-gvc"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="feed_tab" width="25" height="25"/>
         <image name="image_placeholder" width="375" height="375"/>
