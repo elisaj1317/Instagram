@@ -13,6 +13,9 @@
 		5E5E85062695247E00081F45 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5E85052695247E00081F45 /* Post.m */; };
 		5E5E850926960F6100081F45 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5E850826960F6100081F45 /* PostCell.m */; };
 		5E6BF3CD269619F000F01B9D /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6BF3CC269619F000F01B9D /* DetailsViewController.m */; };
+		5E6BF3D02696621300F01B9D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6BF3CF2696621300F01B9D /* ProfileViewController.m */; };
+		5E6BF3D32696642F00F01B9D /* ProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6BF3D22696642F00F01B9D /* ProfileHeaderView.m */; };
+		5E6BF3D6269664FF00F01B9D /* PostCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6BF3D5269664FF00F01B9D /* PostCollectionCell.m */; };
 		5EB4D47C2694E7CD002B9D64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB4D47B2694E7CD002B9D64 /* AppDelegate.m */; };
 		5EB4D47F2694E7CD002B9D64 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB4D47E2694E7CD002B9D64 /* SceneDelegate.m */; };
 		5EB4D4852694E7CD002B9D64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB4D4832694E7CD002B9D64 /* Main.storyboard */; };
@@ -54,6 +57,12 @@
 		5E5E850826960F6100081F45 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		5E6BF3CB269619F000F01B9D /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		5E6BF3CC269619F000F01B9D /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		5E6BF3CE2696621300F01B9D /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		5E6BF3CF2696621300F01B9D /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		5E6BF3D12696642F00F01B9D /* ProfileHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileHeaderView.h; sourceTree = "<group>"; };
+		5E6BF3D22696642F00F01B9D /* ProfileHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileHeaderView.m; sourceTree = "<group>"; };
+		5E6BF3D4269664FF00F01B9D /* PostCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCollectionCell.h; sourceTree = "<group>"; };
+		5E6BF3D5269664FF00F01B9D /* PostCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionCell.m; sourceTree = "<group>"; };
 		5EB4D4772694E7CD002B9D64 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB4D47A2694E7CD002B9D64 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5EB4D47B2694E7CD002B9D64 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -182,6 +191,8 @@
 				5E5E850226950E7300081F45 /* ComposeViewController.m */,
 				5E6BF3CB269619F000F01B9D /* DetailsViewController.h */,
 				5E6BF3CC269619F000F01B9D /* DetailsViewController.m */,
+				5E6BF3CE2696621300F01B9D /* ProfileViewController.h */,
+				5E6BF3CF2696621300F01B9D /* ProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -191,6 +202,10 @@
 			children = (
 				5E5E850726960F6100081F45 /* PostCell.h */,
 				5E5E850826960F6100081F45 /* PostCell.m */,
+				5E6BF3D12696642F00F01B9D /* ProfileHeaderView.h */,
+				5E6BF3D22696642F00F01B9D /* ProfileHeaderView.m */,
+				5E6BF3D4269664FF00F01B9D /* PostCollectionCell.h */,
+				5E6BF3D5269664FF00F01B9D /* PostCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -474,10 +489,13 @@
 				5EE21B9B2694F11500B9D6BA /* LoginViewController.m in Sources */,
 				5EB4D47C2694E7CD002B9D64 /* AppDelegate.m in Sources */,
 				5EB4D48D2694E7CE002B9D64 /* main.m in Sources */,
+				5E6BF3D32696642F00F01B9D /* ProfileHeaderView.m in Sources */,
 				5E5E850926960F6100081F45 /* PostCell.m in Sources */,
+				5E6BF3D02696621300F01B9D /* ProfileViewController.m in Sources */,
 				5E5E850326950E7300081F45 /* ComposeViewController.m in Sources */,
 				5EE21B9E2694F2B400B9D6BA /* HomeViewController.m in Sources */,
 				5E6BF3CD269619F000F01B9D /* DetailsViewController.m in Sources */,
+				5E6BF3D6269664FF00F01B9D /* PostCollectionCell.m in Sources */,
 				5EB4D47F2694E7CD002B9D64 /* SceneDelegate.m in Sources */,
 				5E5E85062695247E00081F45 /* Post.m in Sources */,
 			);
