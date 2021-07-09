@@ -9,6 +9,7 @@
 #import "SceneDelegate.h"
 #import "PostCell.h"
 #import "DetailsViewController.h"
+#import "ProfileViewController.h"
 #import <Parse/Parse.h>
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -99,6 +100,17 @@
         DetailsViewController *detailsViewController = [segue destinationViewController];
         
         detailsViewController.post = post;
+    }
+    
+    if ([segue.identifier isEqual:@"homeProfileSegue"]) {
+        // Passes selected User into ProfileViewController
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.posts[indexPath.row];
+        
+        ProfileViewController *profileViewController = [segue destinationViewController];
+        
+        profileViewController.user = post.author;
     }
 }
 

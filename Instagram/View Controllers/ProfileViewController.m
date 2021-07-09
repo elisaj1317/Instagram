@@ -9,7 +9,6 @@
 #import "PostCollectionCell.h"
 #import "ProfileHeaderView.h"
 #import "DetailsViewController.h"
-#import <Parse/Parse.h>
 
 @interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -20,16 +19,6 @@
 
 @implementation ProfileViewController
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    
-    if(!self.headerView) {
-        return CGSizeMake(10, 10);
-    }
-    
-    return [self.headerView systemLayoutSizeFittingSize: CGSizeMake(collectionView.frame.size.width, UILayoutFittingExpandedSize.height) withHorizontalFittingPriority:UILayoutPriorityRequired verticalFittingPriority:UILayoutPriorityFittingSizeLevel];
-    
-   }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -37,6 +26,9 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
+    if (!self.user) {
+        self.user = [PFUser currentUser];
+    }
     
     [self setCellSize];
 }
@@ -51,7 +43,7 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
-    [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    [query whereKey:@"author" equalTo:self.user];
     [query includeKey:@"author"];
     query.limit = 20;
     
@@ -99,6 +91,16 @@
 
     return self.headerView;
 }
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    
+    if(!self.headerView) {
+        return CGSizeMake(10, 10);
+    }
+    
+    return [self.headerView systemLayoutSizeFittingSize: CGSizeMake(collectionView.frame.size.width, UILayoutFittingExpandedSize.height) withHorizontalFittingPriority:UILayoutPriorityRequired verticalFittingPriority:UILayoutPriorityFittingSizeLevel];
+    
+   }
 
 
 

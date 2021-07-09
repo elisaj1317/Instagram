@@ -105,18 +105,26 @@
                                                         <constraint firstAttribute="height" constant="350" id="V6P-C2-SrJ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzM-SC-4Nf">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzM-SC-4Nf">
                                                     <rect key="frame" x="65" y="22" width="50.5" height="21.5"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="M7h-cT-YZY" appends="YES" id="rkr-nc-lyz"/>
+                                                    </connections>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_profile" translatesAutoresizingMaskIntoConstraints="NO" id="6to-sa-WVb" customClass="PFImageView">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_profile" translatesAutoresizingMaskIntoConstraints="NO" id="6to-sa-WVb" customClass="PFImageView">
                                                     <rect key="frame" x="15" y="15" width="35" height="35"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="4Gb-uA-Yf6"/>
                                                         <constraint firstAttribute="width" constant="35" id="fHM-To-m63"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="wB5-bY-vx0" appends="YES" id="h0l-cJ-OOk"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuX-6W-L3k">
                                                     <rect key="frame" x="15" y="418" width="384" height="21"/>
@@ -182,6 +190,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DME-uN-FhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wB5-bY-vx0">
+                    <connections>
+                        <segue destination="SOc-SR-37s" kind="show" identifier="homeProfileSegue" id="fdF-t7-YSS"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="M7h-cT-YZY">
+                    <connections>
+                        <segue destination="SOc-SR-37s" kind="show" identifier="homeProfileSegue" id="ETz-YI-6Xi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2760.8695652173915" y="87.723214285714278"/>
         </scene>
@@ -252,13 +270,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aih-vH-kGa">
-                                            <rect key="frame" x="118" y="55.5" width="278" height="21"/>
+                                            <rect key="frame" x="118" y="55.5" width="46" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Num" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGa-MU-S7t">
-                                            <rect key="frame" x="118" y="31" width="278" height="22"/>
+                                            <rect key="frame" x="121" y="31" width="40.5" height="22"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -269,15 +287,15 @@
                                         <constraint firstItem="68p-oU-vZ7" firstAttribute="top" secondItem="fQJ-zd-h8E" secondAttribute="topMargin" constant="15" id="AFf-0U-Prm"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="iGI-Rr-MGb" secondAttribute="trailing" constant="15" id="B7G-4W-ByM"/>
                                         <constraint firstItem="iGI-Rr-MGb" firstAttribute="top" secondItem="Aih-vH-kGa" secondAttribute="bottom" constant="37.5" id="BTZ-va-yVB"/>
-                                        <constraint firstItem="Aih-vH-kGa" firstAttribute="leading" secondItem="MGa-MU-S7t" secondAttribute="leading" id="F97-Vg-gwV"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="MGa-MU-S7t" secondAttribute="trailing" constant="10" id="IRl-p2-1FJ"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="MGa-MU-S7t" secondAttribute="trailing" constant="10" id="IRl-p2-1FJ"/>
                                         <constraint firstItem="Aih-vH-kGa" firstAttribute="top" secondItem="MGa-MU-S7t" secondAttribute="bottom" constant="2.5" id="JGC-e0-c2p"/>
                                         <constraint firstItem="68p-oU-vZ7" firstAttribute="leading" secondItem="fQJ-zd-h8E" secondAttribute="leadingMargin" constant="15" id="Xlw-NJ-T2d"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gY8-Is-hz6" secondAttribute="trailing" constant="15" id="cF4-QU-PAn"/>
                                         <constraint firstItem="gY8-Is-hz6" firstAttribute="top" secondItem="iGI-Rr-MGb" secondAttribute="bottom" constant="8" id="d2p-qd-Kkd"/>
+                                        <constraint firstItem="MGa-MU-S7t" firstAttribute="centerX" secondItem="Aih-vH-kGa" secondAttribute="centerX" id="eFD-O5-xYy"/>
                                         <constraint firstItem="iGI-Rr-MGb" firstAttribute="leading" secondItem="fQJ-zd-h8E" secondAttribute="leadingMargin" constant="15" id="hIf-js-Is4"/>
-                                        <constraint firstItem="MGa-MU-S7t" firstAttribute="leading" secondItem="68p-oU-vZ7" secondAttribute="trailing" constant="20" id="l1f-ES-yNM"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Aih-vH-kGa" secondAttribute="trailing" constant="10" id="rt1-Rl-opn"/>
+                                        <constraint firstItem="Aih-vH-kGa" firstAttribute="leading" secondItem="68p-oU-vZ7" secondAttribute="trailing" constant="20" id="hv7-Li-sDk"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Aih-vH-kGa" secondAttribute="trailing" constant="10" id="rt1-Rl-opn"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="gY8-Is-hz6" secondAttribute="bottom" constant="15" id="s8B-tD-v0U"/>
                                         <constraint firstItem="gY8-Is-hz6" firstAttribute="leading" secondItem="fQJ-zd-h8E" secondAttribute="leadingMargin" constant="15" id="vtz-r8-sjL"/>
                                     </constraints>
@@ -599,7 +617,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jHf-eC-gvc"/>
+        <segue reference="M4O-4p-1DG"/>
+        <segue reference="fdF-t7-YSS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Banner" width="1000" height="480"/>
