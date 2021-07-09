@@ -26,13 +26,13 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    [self fetchUserPosts];
-    
-    self.title = [PFUser currentUser].username;
-    
     [self setCellSize];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    
+    [self fetchUserPosts];
 }
 
 - (void)fetchUserPosts {
