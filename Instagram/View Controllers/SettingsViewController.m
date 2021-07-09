@@ -6,6 +6,7 @@
 //
 
 #import "SettingsViewController.h"
+#import <Parse/Parse.h>
 #import <Parse/PFImageView.h>
 
 @interface SettingsViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -13,13 +14,21 @@
 @property (weak, nonatomic) IBOutlet PFImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 
+@property (strong, nonatomic) PFUser *currentUser;
+
 @end
 
 @implementation SettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // set up settings page with current values
+    self.currentUser = [PFUser currentUser];
+    self.profileImage.file = [self.currentUser objectForKey:@"profileImage"];
+    [self.profileImage loadInBackground];
+    
+    self.bioTextView.text = [self.currentUser objectForKey:@"userDescription"];
 }
 
 - (IBAction)didTapChangePicture:(id)sender {
@@ -42,6 +51,13 @@
 - (IBAction)didTapDone:(id)sender {
     CGSize imageSize = CGSizeMake(300, 300);
     UIImage *resizedImage = [self resizeImage:self.profileImage.image withSize:imageSize];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    currentUser[@"profileImage"] = [self getPFFileFromImage:resizedImage];
+    currentUser[@"userDescription"] = self.bioTextView.text;
+    
+    [currentUser saveInBackground];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -49,10 +65,7 @@
     // Get the image captured by the UIImagePickerController
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
-    // Do something with the images (based on your use case)
     self.profileImage.image = editedImage;
-    
-    // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -88,6 +101,22 @@
     [alert addAction:okAction];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
+ 
+    // check if image is not nil
+    if (!image) {
+        return nil;
+    }
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    
+    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
 /*
