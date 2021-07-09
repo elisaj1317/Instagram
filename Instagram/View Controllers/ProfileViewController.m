@@ -11,13 +11,24 @@
 #import "DetailsViewController.h"
 #import <Parse/Parse.h>
 
-@interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray *posts;
+@property (strong, nonatomic) ProfileHeaderView *headerView;
 
 @end
 
 @implementation ProfileViewController
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    
+    if(!self.headerView) {
+        return CGSizeMake(10, 10);
+    }
+    
+    return [self.headerView systemLayoutSizeFittingSize: CGSizeMake(collectionView.frame.size.width, UILayoutFittingExpandedSize.height) withHorizontalFittingPriority:UILayoutPriorityRequired verticalFittingPriority:UILayoutPriorityFittingSizeLevel];
+    
+   }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +36,7 @@
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    
     
     [self setCellSize];
 }
@@ -77,14 +89,17 @@
     return self.posts.count;
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    ProfileHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"ProfileHeaderView" forIndexPath:indexPath];
-    
-    headerView.postCount = [NSNumber numberWithInteger:self.posts.count];
-    headerView.user = [PFUser currentUser];
 
-    return headerView;
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    self.headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"ProfileHeaderView" forIndexPath:indexPath];
+    
+    self.headerView.postCount = [NSNumber numberWithInteger:self.posts.count];
+    self.headerView.user = [PFUser currentUser];
+
+    return self.headerView;
 }
+
 
 
 #pragma mark - Navigation
