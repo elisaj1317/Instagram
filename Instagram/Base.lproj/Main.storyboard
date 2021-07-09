@@ -476,6 +476,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EH7-eB-WI7">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bte-RB-EHa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -501,6 +505,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="EH7-eB-WI7" id="vEx-et-lro"/>
                         <outlet property="postImageView" destination="nG8-Fg-MYt" id="3Ht-LL-Smj"/>
                         <outlet property="textView" destination="90g-OB-RCP" id="bjZ-uS-9qs"/>
                     </connections>

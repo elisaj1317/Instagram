@@ -13,13 +13,16 @@
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+
 @end
 
 @implementation ComposeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (IBAction)didTapCancel:(id)sender {
@@ -27,17 +30,24 @@
 }
 
 - (IBAction)didTapShare:(id)sender {
+    [self.activityIndicator startAnimating];
+    [self shareUserPost];
+    
+    
+    
+}
+
+- (void) shareUserPost {
     CGSize imageSize = CGSizeMake(300, 300);
     UIImage *resizedImage = [self resizeImage:self.postImageView.image withSize:imageSize];
     [Post postUserImage:resizedImage withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(error){
             NSLog(@"Error %@", error);
         } else {
+            [self.activityIndicator stopAnimating];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
-    
-    
 }
 
 - (IBAction)didTapImage:(id)sender {
