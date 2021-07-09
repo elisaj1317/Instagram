@@ -8,7 +8,7 @@
 #import "SettingsViewController.h"
 #import <Parse/PFImageView.h>
 
-@interface SettingsViewController ()
+@interface SettingsViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet PFImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
@@ -23,8 +23,17 @@
 }
 
 - (IBAction)didTapChangePicture:(id)sender {
+    // set up image picker
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
     
+    // show photo album
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
+
 - (IBAction)didTapCancel:(id)sender {
     [self showCancelAlert];
 }
@@ -33,6 +42,18 @@
 - (IBAction)didTapDone:(id)sender {
     CGSize imageSize = CGSizeMake(300, 300);
     UIImage *resizedImage = [self resizeImage:self.profileImage.image withSize:imageSize];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    // Get the image captured by the UIImagePickerController
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+
+    // Do something with the images (based on your use case)
+    self.profileImage.image = editedImage;
+    
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
