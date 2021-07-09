@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (strong, nonatomic) ProfileHeaderView *headerView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 @end
 
@@ -25,9 +26,11 @@
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    self.settingsButton.enabled = NO;
     
     if (!self.user) {
         self.user = [PFUser currentUser];
+        self.settingsButton.enabled = YES;
     }
     
     [self setCellSize];
@@ -87,7 +90,7 @@
     self.headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"ProfileHeaderView" forIndexPath:indexPath];
     
     self.headerView.postCount = [NSNumber numberWithInteger:self.posts.count];
-    self.headerView.user = [PFUser currentUser];
+    self.headerView.user = self.user;
 
     return self.headerView;
 }
@@ -103,7 +106,7 @@
    }
 
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -120,6 +123,7 @@
         detailsViewController.post = post;
     }
 }
+*/
 
 
 

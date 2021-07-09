@@ -12,12 +12,13 @@
 #import "ProfileViewController.h"
 #import <Parse/Parse.h>
 
-@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, PostCellDelegate>
 
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end
 
@@ -83,7 +84,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
     cell.post = self.posts[indexPath.row];
+    cell.delegate = self;
     return cell;
+}
+
+- (void)didClickProfile:(PFUser *)user{
+    [self performSegueWithIdentifier:@"homeProfileSegue" sender:user];
 }
 
 
@@ -104,13 +110,9 @@
     
     if ([segue.identifier isEqual:@"homeProfileSegue"]) {
         // Passes selected User into ProfileViewController
-        UITableViewCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-        Post *post = self.posts[indexPath.row];
-        
         ProfileViewController *profileViewController = [segue destinationViewController];
         
-        profileViewController.user = post.author;
+        profileViewController.user = sender;
     }
 }
 

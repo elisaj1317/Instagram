@@ -37,7 +37,7 @@
     [username addAttribute:NSFontAttributeName value:boldFont range:NSMakeRange(0,username.length)];
     
     
-    self.usernameLabel.attributedText = username;
+    [self.usernameButton setTitle:self.post.author.username forState:UIControlStateNormal];
     
     
     // setup caption
@@ -51,19 +51,40 @@
     self.timeLabel.text = self.post.createdAt.timeAgoSinceNow;
 }
 
+
+- (IBAction)didTapProfileImage:(id)sender {
+    // Passes selected User into ProfileViewController
+    [self.delegate didClickProfile:self.post.author];
+}
+
+- (IBAction)didTapUsername:(id)sender {
+    // Passes selected User into ProfileViewController
+    [self.delegate didClickProfile:self.post.author];
+}
+
 - (void) setupImages {
     // setup Post Image
     self.postImageView.file = self.post.image;
     [self.postImageView loadInBackground];
     
     // setup Profile Image
-    self.userImageView.layer.masksToBounds = false;
-    self.userImageView.layer.cornerRadius = self.userImageView.frame.size.height/2;
-    self.userImageView.clipsToBounds = true;
+    self.profileImageButton.layer.masksToBounds = false;
+    self.profileImageButton.layer.cornerRadius = self.profileImageButton.frame.size.height/2;
+    self.profileImageButton.clipsToBounds = true;
     
-    self.userImageView.file = [self.post.author objectForKey:@"profileImage"];
-    [self.userImageView loadInBackground];
+    PFFileObject *profilePictureObject =[self.post.author objectForKey:@"profileImage"];
+    
+    [profilePictureObject getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            if (!error) {
+                [self.profileImageButton setBackgroundImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
+            } else {
+                NSLog(@"Error: %@", error.localizedDescription);
+            }
+    }];
+
     
 }
 
+- (IBAction)settingsButton:(id)sender {
+}
 @end

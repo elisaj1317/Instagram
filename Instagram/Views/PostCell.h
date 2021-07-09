@@ -11,14 +11,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol PostCellDelegate
+
+- (void)didClickProfile:(PFUser *)user;
+
+@end
+
 @interface PostCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet PFImageView *userImageView;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *profileImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *usernameButton;
+
 
 @property (strong, nonatomic) Post *post;
+@property (weak, nonatomic) id<PostCellDelegate> delegate;
 
 @end
 

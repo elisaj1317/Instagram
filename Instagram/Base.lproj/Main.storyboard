@@ -105,27 +105,6 @@
                                                         <constraint firstAttribute="height" constant="350" id="V6P-C2-SrJ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzM-SC-4Nf">
-                                                    <rect key="frame" x="65" y="22" width="50.5" height="21.5"/>
-                                                    <gestureRecognizers/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="M7h-cT-YZY" appends="YES" id="rkr-nc-lyz"/>
-                                                    </connections>
-                                                </label>
-                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_profile" translatesAutoresizingMaskIntoConstraints="NO" id="6to-sa-WVb" customClass="PFImageView">
-                                                    <rect key="frame" x="15" y="15" width="35" height="35"/>
-                                                    <gestureRecognizers/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="4Gb-uA-Yf6"/>
-                                                        <constraint firstAttribute="width" constant="35" id="fHM-To-m63"/>
-                                                    </constraints>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="wB5-bY-vx0" appends="YES" id="h0l-cJ-OOk"/>
-                                                    </connections>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuX-6W-L3k">
                                                     <rect key="frame" x="15" y="418" width="384" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -138,31 +117,52 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IX8-6C-m5t">
+                                                    <rect key="frame" x="15" y="15" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="CUY-zo-AFD"/>
+                                                        <constraint firstAttribute="height" constant="35" id="qdM-iQ-WJL"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="placeholder_profile"/>
+                                                    <connections>
+                                                        <action selector="didTapProfileImage:" destination="g6g-cv-Hfs" eventType="touchUpInside" id="XKa-5D-SMH"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Izl-g4-hcr">
+                                                    <rect key="frame" x="65" y="15.5" width="51" height="34"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                    <state key="normal" title="Name">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTapUsername:" destination="g6g-cv-Hfs" eventType="touchUpInside" id="MUe-I8-RfF"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hd8-NA-KAT" secondAttribute="trailing" id="5kq-ZR-lq9"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="vzM-SC-4Nf" secondAttribute="trailing" constant="15" id="6Lw-ps-QfI"/>
                                                 <constraint firstItem="BW7-VN-T3q" firstAttribute="leading" secondItem="twN-Zn-03E" secondAttribute="leading" constant="15" id="9LJ-Ne-2mV"/>
-                                                <constraint firstItem="6to-sa-WVb" firstAttribute="top" secondItem="twN-Zn-03E" secondAttribute="top" constant="15" id="9lL-hU-f1F"/>
+                                                <constraint firstItem="Izl-g4-hcr" firstAttribute="leading" secondItem="IX8-6C-m5t" secondAttribute="trailing" constant="15" id="AtI-hY-9tg"/>
+                                                <constraint firstItem="IX8-6C-m5t" firstAttribute="top" secondItem="twN-Zn-03E" secondAttribute="top" constant="15" id="EOp-yp-kLR"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BW7-VN-T3q" secondAttribute="trailing" constant="15" id="EvD-Na-9Sq"/>
-                                                <constraint firstItem="hd8-NA-KAT" firstAttribute="top" secondItem="6to-sa-WVb" secondAttribute="bottom" constant="10" id="Knb-pM-rl2"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Izl-g4-hcr" secondAttribute="trailing" constant="15" id="Jzp-dg-yqd"/>
                                                 <constraint firstItem="DuX-6W-L3k" firstAttribute="leading" secondItem="twN-Zn-03E" secondAttribute="leading" constant="15" id="L3u-mA-gYj"/>
+                                                <constraint firstItem="hd8-NA-KAT" firstAttribute="top" secondItem="IX8-6C-m5t" secondAttribute="bottom" constant="10" id="NUY-vJ-Vi9"/>
                                                 <constraint firstAttribute="trailing" secondItem="DuX-6W-L3k" secondAttribute="trailing" constant="15" id="Xzu-99-e1L"/>
-                                                <constraint firstItem="vzM-SC-4Nf" firstAttribute="centerY" secondItem="6to-sa-WVb" secondAttribute="centerY" id="cJ2-Y6-Scx"/>
-                                                <constraint firstItem="6to-sa-WVb" firstAttribute="leading" secondItem="twN-Zn-03E" secondAttribute="leading" constant="15" id="dhh-SR-HZf"/>
+                                                <constraint firstItem="IX8-6C-m5t" firstAttribute="leading" secondItem="twN-Zn-03E" secondAttribute="leading" constant="15" id="jRj-NT-beI"/>
                                                 <constraint firstItem="DuX-6W-L3k" firstAttribute="top" secondItem="hd8-NA-KAT" secondAttribute="bottom" constant="8" id="nWK-Ob-cYN"/>
                                                 <constraint firstItem="BW7-VN-T3q" firstAttribute="top" secondItem="DuX-6W-L3k" secondAttribute="bottom" constant="8" id="oiW-7a-Gg0"/>
-                                                <constraint firstItem="vzM-SC-4Nf" firstAttribute="leading" secondItem="6to-sa-WVb" secondAttribute="trailing" constant="15" id="rzY-Rp-14s"/>
                                                 <constraint firstItem="hd8-NA-KAT" firstAttribute="leading" secondItem="twN-Zn-03E" secondAttribute="leading" id="udi-1x-5Fg"/>
                                                 <constraint firstAttribute="bottom" secondItem="BW7-VN-T3q" secondAttribute="bottom" constant="15" id="wxS-iw-j7m"/>
+                                                <constraint firstItem="Izl-g4-hcr" firstAttribute="centerY" secondItem="IX8-6C-m5t" secondAttribute="centerY" id="z4X-eS-d5k"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="DuX-6W-L3k" id="c5i-V9-Bee"/>
                                             <outlet property="postImageView" destination="hd8-NA-KAT" id="zjh-WI-Mfh"/>
+                                            <outlet property="profileImageButton" destination="IX8-6C-m5t" id="lMw-j4-xuJ"/>
                                             <outlet property="timeLabel" destination="BW7-VN-T3q" id="O1p-Br-Gel"/>
-                                            <outlet property="userImageView" destination="6to-sa-WVb" id="PTj-Hl-BHD"/>
-                                            <outlet property="usernameLabel" destination="vzM-SC-4Nf" id="cIW-6A-wo2"/>
+                                            <outlet property="usernameButton" destination="Izl-g4-hcr" id="L6j-Q5-79y"/>
                                             <segue destination="Ka8-ap-VV2" kind="show" identifier="detailsSegue" id="M4O-4p-1DG"/>
                                         </connections>
                                     </tableViewCell>
@@ -187,19 +187,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="vsh-O6-yvB" id="fJq-3w-1Oe"/>
+                        <segue destination="SOc-SR-37s" kind="show" identifier="homeProfileSegue" id="l6u-h5-tZD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DME-uN-FhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="wB5-bY-vx0">
-                    <connections>
-                        <segue destination="SOc-SR-37s" kind="show" identifier="homeProfileSegue" id="fdF-t7-YSS"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="M7h-cT-YZY">
-                    <connections>
-                        <segue destination="SOc-SR-37s" kind="show" identifier="homeProfileSegue" id="ETz-YI-6Xi"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2760.8695652173915" y="87.723214285714278"/>
         </scene>
@@ -326,6 +317,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="idF-HP-a2Q" id="zsY-Xh-6Zx"/>
+                        <outlet property="settingsButton" destination="2uM-12-Axl" id="viE-jZ-PZ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2wE-dw-gKZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -617,8 +609,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="M4O-4p-1DG"/>
-        <segue reference="fdF-t7-YSS"/>
+        <segue reference="jHf-eC-gvc"/>
+        <segue reference="l6u-h5-tZD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Banner" width="1000" height="480"/>
