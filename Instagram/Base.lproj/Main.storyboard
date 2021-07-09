@@ -469,7 +469,7 @@
                                     <outletCollection property="gestureRecognizers" destination="6Mq-Sd-yq3" appends="YES" id="cQs-8B-6Bj"/>
                                 </connections>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write a caption..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="90g-OB-RCP">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="90g-OB-RCP">
                                 <rect key="frame" x="183" y="108" width="216" height="155"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>

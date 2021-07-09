@@ -8,6 +8,7 @@
 #import "SettingsViewController.h"
 #import <Parse/Parse.h>
 #import <Parse/PFImageView.h>
+#import <UITextView_Placeholder/UITextView+Placeholder.h>
 
 @interface SettingsViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -22,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.bioTextView.placeholder = @"Write a bio...";
     
     // set up settings page with current values
     self.currentUser = [PFUser currentUser];

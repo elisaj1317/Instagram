@@ -7,6 +7,7 @@
 
 #import "ComposeViewController.h"
 #import "Post.h"
+#import <UITextView_Placeholder/UITextView+Placeholder.h>
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -23,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.textView.placeholder = @"Write a caption...";
 }
 
 - (IBAction)didTapCancel:(id)sender {
@@ -31,6 +33,7 @@
 
 - (IBAction)didTapShare:(id)sender {
     [self.activityIndicator startAnimating];
+    [self.view endEditing:YES];
     [self shareUserPost];
     
     
