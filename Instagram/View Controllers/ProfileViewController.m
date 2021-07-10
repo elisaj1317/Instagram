@@ -38,7 +38,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    [self.user fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            if (!error) {
+                [self fetchUserPosts];
+            }
+    }];
     [self fetchUserPosts];
 }
 
